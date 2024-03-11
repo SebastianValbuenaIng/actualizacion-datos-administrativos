@@ -1,0 +1,7 @@
+export * from "./InformacionEmpleado"
+export * from "./PerfilEmpleado"
+export * from "./PrincipalTabs"
+export * from "./ConsultarExperiencia"
+export * from "./ConsultarFamiliares"
+export * from "./PublicacionasIdiomas"
+export * from "./DetallesDelCargo"
