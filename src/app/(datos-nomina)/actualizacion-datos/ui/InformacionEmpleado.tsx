@@ -446,7 +446,7 @@ export const InformacionEmpleado = ({ changeTab, chargeData, setChargeData, chan
                                     }
                                     label="Departamento Residencia"
                                     placeholder="Seleccione departamento"
-                                    className="w-52"
+                                    className="w-56"
                                     classNames={{
                                         label: "text-sm",
                                         value: "text-xs"

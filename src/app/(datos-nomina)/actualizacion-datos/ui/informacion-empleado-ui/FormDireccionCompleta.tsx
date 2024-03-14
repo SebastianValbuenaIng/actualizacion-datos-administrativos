@@ -126,13 +126,6 @@ export const FormDireccionCompleta = ({ direccionActual, setVerifyChangeValue }:
                                 label: "text-sm",
                                 value: "text-xs"
                             }}
-                            isRequired
-                            required
-                            validations={function campo(nameField: string) {
-                                return {
-                                    required: 'Campo requerido'
-                                }
-                            }}
                             defaultValue={getDireccionPersona.segundoCampoCalle ?? ''}
                         >
                             {

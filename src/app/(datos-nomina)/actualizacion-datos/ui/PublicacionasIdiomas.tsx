@@ -37,13 +37,22 @@ export const PublicacionesIdiomas = ({ changeTab, getIdiomaEmpl, calificacionIdi
 
     const changeIdiomaEmpleado = useValidateForm<any>([
         {
-            name: 'idioma'
+            name: 'idioma',
+            validations: {
+                required: "El campo es obligatorio"
+            }
         },
         {
-            name: 'calificacion_idioma'
+            name: 'calificacion_idioma',
+            validations: {
+                required: "El campo es obligatorio"
+            }
         },
         {
-            name: 'habilidad_idioma'
+            name: 'habilidad_idioma',
+            validations: {
+                required: "El campo es obligatorio"
+            }
         }
     ]);
 
@@ -164,6 +173,7 @@ export const PublicacionesIdiomas = ({ changeTab, getIdiomaEmpl, calificacionIdi
         toast.success('Publicación agregada correctamente.', {
             id: 'success'
         });
+        setAgregarPublicacion(false);
     }
 
     const putPublicacion = async () => {
@@ -226,6 +236,7 @@ export const PublicacionesIdiomas = ({ changeTab, getIdiomaEmpl, calificacionIdi
         toast.success('Idioma agregado correctamente.', {
             id: 'success'
         });
+        setAgregarIdioma(false);
     }
 
     const putIdioma = async () => {
@@ -277,7 +288,7 @@ export const PublicacionesIdiomas = ({ changeTab, getIdiomaEmpl, calificacionIdi
             <form className="w-full max-w-[1400px]">
 
                 {/* Tabla publicaciones */}
-                <div className="flex-center flex-col items-end justify-start">
+                <div className="flex-center flex-col justify-start">
                     <h2 className="text-2xl font-semibold text-center my-4">Consultar Publicaciones</h2>
 
                     <ButtonNextUI color="primary" className="m-2 font-semibold" onClick={() => setAgregarPublicacion(!agregarPublicacion)}>
@@ -700,7 +711,7 @@ export const PublicacionesIdiomas = ({ changeTab, getIdiomaEmpl, calificacionIdi
                 </Modal>
 
                 {/* Tabla idiomas */}
-                <div className="flex-center flex-col items-end justify-start">
+                <div className="flex-center flex-col justify-start">
                     <h2 className="text-2xl font-semibold text-center my-3">Consultar Idiomas</h2>
 
                     <ButtonNextUI color="primary" className="m-2 font-semibold" onClick={() => setAgregarIdioma(!agregarIdioma)}>

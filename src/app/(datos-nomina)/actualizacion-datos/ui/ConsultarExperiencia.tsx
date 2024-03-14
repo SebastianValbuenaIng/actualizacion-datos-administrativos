@@ -301,7 +301,7 @@ export const ConsultarExperiencia = ({ changeTab, getExperienciaEmpl, duracionEx
                                             onChange={changeExperienciaEmpleado.setField}
                                             label="Área"
                                             isRequired
-                                            className="w-48 text-sm"
+                                            className="w-80 text-sm"
                                             scrollRef={scrollerRef}
                                             validations={changeExperienciaEmpleado.validators}
                                         >
@@ -332,7 +332,9 @@ export const ConsultarExperiencia = ({ changeTab, getExperienciaEmpl, duracionEx
                                             className="max-w-xs"
                                         />
                                     </div>
+                                </div>
 
+                                <div className="flex flex-col md:flex-row gap-3 mt-4">
                                     <div>
                                         <SelectForm
                                             name="duracion"
@@ -351,9 +353,6 @@ export const ConsultarExperiencia = ({ changeTab, getExperienciaEmpl, duracionEx
                                             }
                                         </SelectForm>
                                     </div>
-                                </div>
-
-                                <div className="flex flex-col md:flex-row gap-3 mt-4">
                                     <div>
                                         <InputForm
                                             isRequired

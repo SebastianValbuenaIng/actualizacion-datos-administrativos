@@ -324,7 +324,7 @@ export const ConsultarFamiliares = ({ changeTab, getFamiliaresEmpl, parentescos,
 
             <div className="w-full max-w-[1900px]">
                 <div className="flex-center flex-col items-end justify-start">
-                    <ButtonNextUI color="primary" className="m-2 font-semibold" onClick={() => setAgregarFamiliar(!agregarFamiliar)}>
+                    <ButtonNextUI color="primary" className="m-2 font-semibold flex-center" onClick={() => setAgregarFamiliar(!agregarFamiliar)}>
                         {agregarFamiliar ? 'Cerrar' : 'Agregar familiar'}
                     </ButtonNextUI>
 
@@ -1003,7 +1003,7 @@ export const ConsultarFamiliares = ({ changeTab, getFamiliaresEmpl, parentescos,
                                                     }}
                                                     isRequired
                                                     defaultValue={
-                                                        nivelEstudios.find(i => i.tip_est == editFamiliar.data.nivel_estudios_familiar)?.tip_est.toString() ?? undefined
+                                                        nivelEstudios.find(i => i.tip_est == editFamiliar.data.nivel_estudios_familiar)?.tip_est ?? undefined
                                                     }
                                                     validations={editFamiliar.validators}
                                                 >

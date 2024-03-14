@@ -6,15 +6,15 @@ import { emptyValue } from "@/libs/functionsStrings";
 import { Validations, validateValue } from "@/app/hooks/useValidateForm";
 
 const SelectForm = ({
-	name,
-	placeholder,
-	icon,
-	label,
-	onChange,
-	required,
+    name,
+    placeholder,
+    icon,
+    label,
+    onChange,
+    required,
     isRequired,
-	children,
-	defaultValue,
+    children,
+    defaultValue,
     className,
     classNames,
     isDisabled = false,
@@ -23,19 +23,19 @@ const SelectForm = ({
     validations: getValidators,
     selectionMode = 'single'
 }: {
-	type?: string;
-	name: string;
-	placeholder?: string;
-	icon?: string;
-	required?: boolean;
-	onChange: ({ name, value }: { name: string; value: string | number | null }) => any;
-	children?: any;
-	defaultValue?: string;
+    type?: string;
+    name: string;
+    placeholder?: string;
+    icon?: string;
+    required?: boolean;
+    onChange: ({ name, value }: { name: string; value: string | number | null }) => any;
+    children?: any;
+    defaultValue?: string;
     isRequired?: boolean;
     className?: string;
     classNames?: any;
     label: string | boolean;
-    isDisabled?: boolean; 
+    isDisabled?: boolean;
     defaultValues?: string[];
     scrollRef?: any;
     validations?: (nameField: string) => Validations | undefined;
@@ -43,41 +43,41 @@ const SelectForm = ({
 }) => {
     const [error, setError] = useState<string | undefined>(undefined);
 
-	const validations =
-		typeof getValidators === "function" ? getValidators(name) : undefined;
+    const validations =
+        typeof getValidators === "function" ? getValidators(name) : undefined;
 
-	const handleChange = ({
-		name,
-		value,
-	}: {
-		name: string;
-		value: string | null;
-	}) => {
-		const result = validateValue(value, validations);
+    const handleChange = ({
+        name,
+        value,
+    }: {
+        name: string;
+        value: string | null;
+    }) => {
+        const result = validateValue(value, validations);
 
-		if (result.error) {
-			setError(result.error);
-		} else {
-			setError(undefined);
-		}
+        if (result.error) {
+            setError(result.error);
+        } else {
+            setError(undefined);
+        }
 
-		if (onChange)
-			onChange({
-				name,
-				value: result.value,
-			});
-		return { name, value: result.value };
-	};
+        if (onChange)
+            onChange({
+                name,
+                value: result.value,
+            });
+        return { name, value: result.value };
+    };
 
-	return (
-		<div>
-			<Select
-				name={name}
-				placeholder={placeholder ?? ''}
-				icon={icon}
-				error={error}
-				onChange={handleChange}
-				defaultValue={defaultValue}
+    return (
+        <div>
+            <Select
+                name={name}
+                placeholder={placeholder ?? ''}
+                icon={icon}
+                error={error}
+                onChange={handleChange}
+                defaultValue={defaultValue}
                 className={className}
                 isRequired={isRequired}
                 label={label}
@@ -86,11 +86,11 @@ const SelectForm = ({
                 defaultValues={defaultValues}
                 scrollRef={scrollRef}
                 selectionMode={selectionMode}
-			>
-				{children}
-			</Select>
-		</div>
-	);
+            >
+                {children}
+            </Select>
+        </div>
+    );
 };
 
 export default SelectForm;

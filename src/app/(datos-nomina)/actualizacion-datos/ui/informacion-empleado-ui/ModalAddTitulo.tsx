@@ -128,22 +128,21 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
     };
 
     return (
-        <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="3xl" isDismissable={false} hideCloseButton >
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="4xl" isDismissable={false} hideCloseButton >
             <ModalContent>
                 {(onClose) => (
                     <>
                         <ModalHeader className="flex flex-col gap-1">Agregar Nuevo Título</ModalHeader>
                         <ModalBody>
                             <div>
-                                <div className="flex gap-2 flex-col md:flex-row justify-center">
+                                <div className="flex gap-2 flex-col flex-center md:flex-row justify-center">
                                     <InputForm
-                                        icon="search"
                                         className="w-64"
                                         classNames={{
                                             inputWrapper: "pb-1",
                                             errorMessage: "text-sm font-medium",
                                             input: "ml-2 rounded text-sm",
-                                            label: "text-sm"
+                                            label: "text-sm mb-5"
                                         }}
                                         label="Escriba para filtrar el estudio"
                                         name="titulo"
@@ -159,6 +158,14 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
                                         validations={changeNuevoTitulo.validators}
                                     />
 
+                                    {
+                                        titulo && (
+                                            <>
+                                                <i className="bi bi-arrow-down md:hidden text-primary text-xl flex items-center"></i>
+                                                <i className="bi bi-arrow-right hidden text-primary text-xl md:flex items-center"></i>
+                                            </>
+                                        )
+                                    }
 
                                     <div>
                                         <SelectForm
@@ -167,9 +174,9 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
                                             onChange={changeNuevoTitulo.setField}
                                             classNames={{
                                                 label: "text-sm",
-                                                value: "text-xs"
+                                                value: "text-xs",
+                                                trigger: titulo ? "w-96 md:w-[550px] hover:cursor-none rounded-xl transition-all" : "w-96 md:w-[550px] hover:cursor-none rounded-xl transition-all"
                                             }}
-                                            className="w-96 hover:cursor-none"
                                             scrollRef={scrollerRef}
                                             isRequired
                                             isDisabled={!titulo}
@@ -193,13 +200,12 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
 
                                 <div className="flex gap-2 items-center justify-center mt-3 flex-col md:flex-row">
                                     <InputForm
-                                        icon="search"
                                         className="w-64"
                                         classNames={{
                                             inputWrapper: "pb-1",
                                             errorMessage: "text-sm font-medium",
                                             input: "ml-2 rounded text-sm",
-                                            label: "text-sm"
+                                            label: "text-sm mb-5"
                                         }}
                                         label="Escriba para filtrar la institución"
                                         name="institucion"
@@ -215,6 +221,15 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
                                         validations={changeNuevoTitulo.validators}
                                     />
 
+                                    {
+                                        showIns && (
+                                            <>
+                                                <i className="bi bi-arrow-down md:hidden text-primary text-xl flex items-center"></i>
+                                                <i className="bi bi-arrow-right hidden text-primary text-xl md:flex items-center"></i>
+                                            </>
+                                        )
+                                    }
+
                                     <div>
                                         <SelectForm
                                             label="Seleccione la institución"
@@ -222,9 +237,9 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
                                             onChange={changeNuevoTitulo.setField}
                                             classNames={{
                                                 label: "text-sm",
-                                                value: "text-xs"
+                                                value: "text-xs",
+                                                trigger: showIns ? "w-96 md:w-[550px] hover:cursor-none rounded-xl transition-all" : "w-96 md:w-[550px] hover:cursor-none rounded-xl transition-all"
                                             }}
-                                            className="w-96 hover:cursor-none"
                                             scrollRef={scrollerRef}
                                             isRequired
                                             isDisabled={!showIns}
@@ -232,7 +247,7 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
                                         >
                                             {
                                                 institucionesFiltradas.map(institucion => (
-                                                    <SelectItem key={institucion.cod_ins} className="text-sm">
+                                                    <SelectItem key={institucion.cod_ins}>
                                                         {institucion.nom_ins}
                                                     </SelectItem>
                                                 ))
@@ -298,7 +313,8 @@ export const ModalAddTitulo = ({ documento, isOpen, onOpenChange, getTitulos, on
                                     />
                                 </div>
 
-                                <div className="flex-center mt-5">
+                                <div className="flex-center flex-col mt-5">
+                                    <p className="text-primary underline text-sm mb-2">Para finalizar el registro de su nuevo título, adjunte el documento que lo acredite: </p>
                                     <InputFile
                                         name="titulo"
                                         getFiles={setFilesField}

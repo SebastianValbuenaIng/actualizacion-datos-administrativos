@@ -45,6 +45,7 @@ const Select = ({
 }: Props) => {
     return (
         <SelectNextUi
+            isMultiline
             aria-label={name}
             size="md"
             startContent={

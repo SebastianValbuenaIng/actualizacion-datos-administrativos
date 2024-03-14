@@ -226,8 +226,6 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         {
             name: 'ubicacion_empleado',
             validations: {
-                onlyLetters: true,
-                required: 'El campo es requerido.',
                 maxLength: {
                     message: 'El campo ubicación no puede tener más de 50 caracteres.',
                     value: 50
@@ -457,7 +455,8 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         });
 
         // Experiencia Empleado
-        const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=${infoPersona.nroDocumento}`);
+        // const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=${infoPersona.nroDocumento}`);
+        const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=1014216982`);
 
         if (respExperienciaEmpl.status === 200) {
             const respExperienciaEmplJson = await respExperienciaEmpl.json();
@@ -491,7 +490,7 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         }
 
         // Publicaciones Ya existentes
-        // const respPubliccionesEmpl = await fetchFn(`/empleado/publicaciones?documento=${infoPersona.nroDocumento}`);
+        // const respPubliccionclsesEmpl = await fetchFn(`/empleado/publicaciones?documento=${infoPersona.nroDocumento}`);
         // TODO: CAMBIAR
         const respPubliccionesEmpl = await fetchFn(`/empleado/publicaciones?documento=79151838`);
 
@@ -564,13 +563,6 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
                 parrafoDos: changePerfilEmpleadoData.data.perfilParrafoDos
             }
         });
-
-        if (respPerfilEmpleado.code !== 200) {
-            toast.error('Ha ocurrido un error', {
-                id: 'error-peticion'
-            });
-            return;
-        }
     }
 
     const postAreasInteres = async () => {
