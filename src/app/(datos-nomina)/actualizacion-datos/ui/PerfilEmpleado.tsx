@@ -285,13 +285,16 @@ export const PerfilEmpleado = ({
                         <div className="flex flex-col gap-2 items-center justify-center">
                             <TextAreaForm
                                 name="cargosDirectivos"
+                                value={changePerfilEmpleadoData.data.cargosDirectivos}
+                                label="Cargos directivos o dirección de proyectos destacados"
                                 onChange={
                                     ({ name, value }) => {
-                                        changePerfilEmpleadoData.setField({ name, value });
-                                        setVerifyChangeValue(true);
+                                        if (value && value.toString().length <= 400) {
+                                            changePerfilEmpleadoData.setField({ name, value });
+                                            setVerifyChangeValue(true);
+                                        }
                                     }
                                 }
-                                label="Cargos directivos o dirección de proyectos destacados"
                                 className="max-w-full w-[425px] placeholder:text-red placeholder-shown:text-dark-red placeholder:text-sm "
                                 classNames={{
                                     base: "text-sm",
@@ -319,12 +322,15 @@ export const PerfilEmpleado = ({
 
                         <div className="flex flex-col gap-2 items-center justify-center">
                             <TextAreaForm
+                                value={changePerfilEmpleadoData.data.membresias}
                                 name="membresias"
                                 label="Membresías"
                                 onChange={
                                     ({ name, value }) => {
-                                        changePerfilEmpleadoData.setField({ name, value });
-                                        setVerifyChangeValue(true);
+                                        if (value && value.toString().length <= 300) {
+                                            changePerfilEmpleadoData.setField({ name, value });
+                                            setVerifyChangeValue(true);
+                                        }
                                     }
                                 }
                                 // placeholder="Ejemplo: IEEE, ASCE"
@@ -343,12 +349,15 @@ export const PerfilEmpleado = ({
                         <div className="flex flex-col items-center justify-center md:flex-row gap-6">
                             <div className="flex flex-col gap-2 items-center justify-center">
                                 <TextAreaForm
+                                    value={changePerfilEmpleadoData.data.reconocimientos}
                                     name="reconocimientos"
                                     label="Reconocimientos: premios, becas, condecoraciones"
                                     onChange={
                                         ({ name, value }) => {
-                                            changePerfilEmpleadoData.setField({ name, value });
-                                            setVerifyChangeValue(true);
+                                            if (value && value.toString().length <= 300) {
+                                                changePerfilEmpleadoData.setField({ name, value });
+                                                setVerifyChangeValue(true);
+                                            }
                                         }
                                     }
                                     // placeholder="Ejemplo: Premio Nacional de Investigación 2023"
@@ -390,12 +399,15 @@ export const PerfilEmpleado = ({
                         {/* Parrafo 1 - Perfil */}
                         <div className="mx-auto w-[95%] max-w-[500px]">
                             <TextAreaForm
+                                value={changePerfilEmpleadoData.data.perfilParrafoUno}
                                 name="perfilParrafoUno"
                                 label="Párrafo 1 - Perfil"
                                 onChange={
                                     ({ name, value }) => {
-                                        changePerfilEmpleadoData.setField({ name, value });
-                                        setVerifyChangeValue(true);
+                                        if (value && value.toString().length <= 1000) {
+                                            changePerfilEmpleadoData.setField({ name, value });
+                                            setVerifyChangeValue(true);
+                                        }
                                     }
                                 }
                                 validations={changePerfilEmpleadoData.validators}
@@ -429,12 +441,15 @@ export const PerfilEmpleado = ({
                         {/* Parrafo 2 - Perfil */}
                         <div className="mx-auto w-[95%] max-w-[500px]">
                             <TextAreaForm
+                                value={changePerfilEmpleadoData.data.perfilParrafoDos}
                                 name="perfilParrafoDos"
                                 label="Párrafo 2 - Perfil"
                                 onChange={
                                     ({ name, value }) => {
-                                        changePerfilEmpleadoData.setField({ name, value });
-                                        setVerifyChangeValue(true);
+                                        if (value && value.toString().length <= 1000) {
+                                            changePerfilEmpleadoData.setField({ name, value });
+                                            setVerifyChangeValue(true);
+                                        }
                                     }
                                 }
                                 validations={changePerfilEmpleadoData.validators}

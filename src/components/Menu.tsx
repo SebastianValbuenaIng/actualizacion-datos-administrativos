@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
+import { Menu, Transition } from "@headlessui/react";
 
 export default function MenuMobile() {
     const router = useRouter();
@@ -18,7 +18,7 @@ export default function MenuMobile() {
                             strokeWidth="1.5"
                             stroke="currentColor"
                             className="w-6 h-6"
-                        >
+                            >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -158,12 +158,11 @@ export default function MenuMobile() {
                             <Menu.Item>
                                 {({ active }) => (
                                     <button
-
                                         onClick={() => {
                                             signOut({
                                                 redirect: false
                                             });
-                                            router.push("https://www.escuelaing.edu.co/es/profesores-y-administrativos/");
+                                            router.push("https://empleados.escuelaing.edu.co/intraeci/");
                                         }}
                                         className={`${active
                                             ? "bg-primary text-default-white"

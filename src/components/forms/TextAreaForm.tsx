@@ -40,6 +40,7 @@ interface Props {
     minRows?: number;
     maxRows?: number;
     readonly?: boolean;
+    value?: string;
 }
 
 const TextAreaForm = ({
@@ -57,7 +58,8 @@ const TextAreaForm = ({
     endContent,
     minRows,
     maxRows,
-    readonly = false
+    readonly = false,
+    value
 }: Props) => {
     const [error, setError] = useState<string | undefined>(undefined);
 
@@ -88,6 +90,7 @@ const TextAreaForm = ({
 
     return (
         <Textarea
+            value={value}
             error={error}
             label={label}
             classNames={classNames}

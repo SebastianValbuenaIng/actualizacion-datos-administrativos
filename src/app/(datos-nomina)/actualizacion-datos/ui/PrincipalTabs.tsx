@@ -20,7 +20,6 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
     const router = useRouter();
 
     const infoPersona = useInfoPersonaStore(state => state.getInfoPersona());
-    const getInfoEmpleadoData = useInformacionEmpleadoStore(state => state.getInfoEmpleado());
     const getDireccionFinalPersona = useDireccionFinalPersona(state => state.getDireccionFinalPersona());
 
     const [selected, setSelected] = useState("informacion-empleado");
@@ -167,8 +166,8 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
             name: 'cargosDirectivos',
             validations: {
                 maxLength: {
-                    message: 'No debe ser mayor a 200 carácteres.',
-                    value: 200
+                    message: 'No debe ser mayor a 400 carácteres.',
+                    value: 400
                 }
             }
         },
@@ -176,8 +175,8 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
             name: 'membresias',
             validations: {
                 maxLength: {
-                    message: 'No debe ser mayor a 200 carácteres.',
-                    value: 200
+                    message: 'No debe ser mayor a 300 carácteres.',
+                    value: 300
                 }
             }
         },
@@ -185,8 +184,8 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
             name: 'reconocimientos',
             validations: {
                 maxLength: {
-                    message: 'No debe ser mayor a 200 carácteres.',
-                    value: 200
+                    message: 'No debe ser mayor a 300 carácteres.',
+                    value: 300
                 }
             }
         },
@@ -407,9 +406,9 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         });
 
         // Perfil empleado
-        // const respPerfilEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/titulos?documento=${infoPersona.nroDocumento}`);
+        const respPerfilEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/titulos?documento=${infoPersona.nroDocumento}`);
         // TODO: CAMBIAR
-        const respPerfilEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/titulos?documento=19417101`);
+        // const respPerfilEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/titulos?documento=19417101`);
         const respJsonPerfilEmpl = await respPerfilEmpl.json();
 
         const titulosPregrado = respJsonPerfilEmpl.filter((t: any) => t.tip_est === "05" || t.tip_est === "06" || t.tip_est === "07" || t.tip_est === "08");
@@ -421,9 +420,9 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         setTitulosPosgradoActuales(institucionesPos);
 
         const respPerfilWeb = await fetch(process.env.NEXT_PUBLIC_API_URL + `/nuevoPerfil/perfilWeb?documento=${infoPersona.nroDocumento}`);
-        // const respPerfilWebNovasoft = await fetchFn(`/empleado/perfil?documento=${infoPersona.nroDocumento}`);
+        const respPerfilWebNovasoft = await fetchFn(`/empleado/perfil?documento=${infoPersona.nroDocumento}`);
         // TODO: CAMBIAR
-        const respPerfilWebNovasoft = await fetchFn(`/empleado/perfil?documento=19417101`);
+        // const respPerfilWebNovasoft = await fetchFn(`/empleado/perfil?documento=19417101`);
 
         if (respPerfilWeb.status == 200) {
             const respPerfilWebJson = await respPerfilWeb.json();
@@ -438,6 +437,7 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
                     ? respPerfilWebNovasoft.data.parrafo2 : respPerfilWebJson.parrafo2
             });
         }
+
 
         // Detalles del Cargo
         const respDetallesCargoEmpl = await (await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/detallesCargo?documento=${infoPersona.nroDocumento}`)).json();
@@ -455,8 +455,9 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         });
 
         // Experiencia Empleado
-        // const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=${infoPersona.nroDocumento}`);
-        const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=1014216982`);
+        const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=${infoPersona.nroDocumento}`);
+        // TODO: CAMBIAR
+        // const respExperienciaEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/experiencia?documento=1014216982`);
 
         if (respExperienciaEmpl.status === 200) {
             const respExperienciaEmplJson = await respExperienciaEmpl.json();
@@ -480,9 +481,9 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         }
 
         // Areas de Interes
-        // const respAreasIntEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/areasInteres?documento=${infoPersona.nroDocumento}`);
+        const respAreasIntEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/areasInteres?documento=${infoPersona.nroDocumento}`);
         // TODO: CAMBIAR
-        const respAreasIntEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/areasInteres?documento=19417101`);
+        // const respAreasIntEmpl = await fetch(process.env.NEXT_PUBLIC_API_URL + `/empleado/areasInteres?documento=19417101`);
 
         if (respAreasIntEmpl.status === 200) {
             const respAreasIntEmplJson = await respAreasIntEmpl.json();
@@ -490,9 +491,9 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
         }
 
         // Publicaciones Ya existentes
-        // const respPubliccionclsesEmpl = await fetchFn(`/empleado/publicaciones?documento=${infoPersona.nroDocumento}`);
+        const respPubliccionesEmpl = await fetchFn(`/empleado/publicaciones?documento=${infoPersona.nroDocumento}`);
         // TODO: CAMBIAR
-        const respPubliccionesEmpl = await fetchFn(`/empleado/publicaciones?documento=79151838`);
+        // const respPubliccionesEmpl = await fetchFn(`/empleado/publicaciones?documento=79151838`);
 
         if (respPubliccionesEmpl.code === 200) {
             setPublicacionesEmpl(respPubliccionesEmpl.data);

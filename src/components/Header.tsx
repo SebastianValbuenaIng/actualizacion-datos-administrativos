@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { signOut } from "next-auth/react";
 import Menu from "@/components/Menu";
 import Modal from "./Modal";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { signOut } from "next-auth/react";
 
 const Header = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -38,7 +38,8 @@ const Header = () => {
                                             signOut({
                                                 redirect: false
                                             });
-                                            router.push("https://www.escuelaing.edu.co/es/profesores-y-administrativos/");
+                                            // router.push("https://www.escuelaing.edu.co/es/profesores-y-administrativos/");
+                                            router.push("https://empleados.escuelaing.edu.co/intraeci/");
                                         }}
                                         type="button"
                                         className="inline-flex font-base hover:text-primary outline-none hover:font-bold border-none transition-all justify-center rounded-lg px-4 text-lg"
