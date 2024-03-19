@@ -729,7 +729,7 @@ export const ConsultarFamiliares = ({ changeTab, getFamiliaresEmpl, parentescos,
                                                         label: "text-sm"
                                                     }}
                                                     className="max-w-xs"
-                                                    defaultValue={editFamiliar.data.apellido_uno_familiar.trim()}
+                                                    defaultValue={editFamiliar.data.apellido_uno_familiar?.trim() ?? ''}
                                                     validations={editFamiliar.validators}
                                                 />
 
@@ -745,7 +745,7 @@ export const ConsultarFamiliares = ({ changeTab, getFamiliaresEmpl, parentescos,
                                                         label: "text-sm"
                                                     }}
                                                     className="max-w-xs"
-                                                    defaultValue={editFamiliar.data.apellido_dos_familiar.trim()}
+                                                    defaultValue={editFamiliar.data.apellido_dos_familiar?.trim() ?? ''}
                                                 />
                                             </div>
 
@@ -763,7 +763,7 @@ export const ConsultarFamiliares = ({ changeTab, getFamiliaresEmpl, parentescos,
                                                         label: "text-sm"
                                                     }}
                                                     className="max-w-xs"
-                                                    defaultValue={editFamiliar.data.nombres_familiar.trim()}
+                                                    defaultValue={editFamiliar.data.nombres_familiar?.trim() ?? ''}
                                                     validations={editFamiliar.validators}
                                                 />
 

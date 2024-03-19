@@ -120,7 +120,7 @@ export const DetallesDelCargo = ({ changeTab, changeDetallesDelCargo, areasInter
                             label: "text-sm"
                         }}
                         className="max-w-xs"
-                        defaultValue={changeDetallesDelCargo.data.extension.toString().trim()}
+                        defaultValue={changeDetallesDelCargo.data.extension?.toString().trim() ?? 0}
                         validations={changeDetallesDelCargo.validators}
                     />
                 </div>

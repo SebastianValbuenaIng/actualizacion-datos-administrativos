@@ -5,7 +5,7 @@ export const validateString = (
     if (value === "" || !value) return null;
 
     if (type === "str") {
-        return value.toString().trim();
+        return value.toString();
     }
 
     if (type === "int") {

@@ -63,7 +63,7 @@ const Textarea = ({
             name={name}
             onChange={(e) => {
                 if (onChange) {
-                    const value = String(e.target.value).trim();
+                    const value = String(e.target.value);
                     onChange({
                         name: String(e.target.name).trim(),
                         value: value !== "" ? value : null,
