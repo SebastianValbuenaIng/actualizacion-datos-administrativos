@@ -495,7 +495,6 @@ export const PerfilEmpleado = ({
                     <div>
                         <button className="h-10 border-2 select-none justify-center rounded-xl text-base font-medium items-center normal-shadow hover:font-semibold border-borders-light hover:border-primary bg-default-white hover:text-primary transition-all flex gap-1 w-40" onClick={() => {
                             changeTab('redes-sociales');
-                            postPerfilEmplado();
                             if (verifyChangeValue) {
                                 setModalGuardarTemporal(true);
                             }
@@ -507,7 +506,6 @@ export const PerfilEmpleado = ({
                     <div className="w-40">
                         <Button text="Continuar" icon="caret-right" onClick={() => {
                             changeTab('detalles-cargo');
-                            postPerfilEmplado();
                             if (verifyChangeValue) {
                                 setModalGuardarTemporal(true);
                             }

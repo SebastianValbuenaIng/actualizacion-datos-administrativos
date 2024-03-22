@@ -528,7 +528,6 @@ export const InformacionEmpleado = ({ changeTab, chargeData, setChargeData, chan
                         } else if (verifyChangeValue) {
                             setModalGuardarTemporal(true);
                         }
-                        postInfoEmpleado();
                         changeTab('perfil-empleado');
                     }} />
                 </div>
