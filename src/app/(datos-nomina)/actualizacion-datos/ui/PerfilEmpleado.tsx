@@ -286,12 +286,16 @@ export const PerfilEmpleado = ({
                             <TextAreaForm
                                 name="cargosDirectivos"
                                 value={changePerfilEmpleadoData.data.cargosDirectivos}
-                                label="Cargos directivos o dirección de proyectos destacados"
+                                label="Cargos directivos o dirección de proyectos destacados (Máximo 400 carácteres)"
                                 onChange={
                                     ({ name, value }) => {
                                         if (value && value.toString().length <= 400) {
                                             changePerfilEmpleadoData.setField({ name, value });
                                             setVerifyChangeValue(true);
+                                        }
+
+                                        if (value === null) {
+                                            changePerfilEmpleadoData.setField({ name, value: "" });
                                         }
                                     }
                                 }
@@ -324,16 +328,19 @@ export const PerfilEmpleado = ({
                             <TextAreaForm
                                 value={changePerfilEmpleadoData.data.membresias}
                                 name="membresias"
-                                label="Membresías"
+                                label="Membresías (Máximo 300 carácteres)"
                                 onChange={
                                     ({ name, value }) => {
                                         if (value && value.toString().length <= 300) {
                                             changePerfilEmpleadoData.setField({ name, value });
                                             setVerifyChangeValue(true);
                                         }
+
+                                        if (value === null) {
+                                            changePerfilEmpleadoData.setField({ name, value: "" });
+                                        }
                                     }
                                 }
-                                // placeholder="Ejemplo: IEEE, ASCE"
                                 className="max-w-full w-[409px]"
                                 classNames={{
                                     base: "text-sm",
@@ -351,12 +358,16 @@ export const PerfilEmpleado = ({
                                 <TextAreaForm
                                     value={changePerfilEmpleadoData.data.reconocimientos}
                                     name="reconocimientos"
-                                    label="Reconocimientos: premios, becas, condecoraciones"
+                                    label="Reconocimientos: premios, becas, condecoraciones (Máximo 300 carácteres)"
                                     onChange={
                                         ({ name, value }) => {
                                             if (value && value.toString().length <= 300) {
                                                 changePerfilEmpleadoData.setField({ name, value });
                                                 setVerifyChangeValue(true);
+                                            }
+
+                                            if (value === null) {
+                                                changePerfilEmpleadoData.setField({ name, value: "" });
                                             }
                                         }
                                     }
@@ -383,30 +394,22 @@ export const PerfilEmpleado = ({
                 {/* Perfil Web */}
                 <div>
                     <h4 className="text-center text-2xl my-4 font-bold">Perfil Web</h4>
-                    {/* Boton Ejemplo Profesor*/}
-                    <div className="flex-center gap-4">
-                        <ButtonNextUI className="bg-primary text-soft-white">
-                            Ejemplo para Profesor
-                        </ButtonNextUI>
-
-                        {/* Boton Ejemplo Decano*/}
-                        <ButtonNextUI className="bg-primary text-soft-white">
-                            Ejemplo para Decano
-                        </ButtonNextUI>
-                    </div>
-
                     <div className="flex flex-wrap gap-5 mt-5">
                         {/* Parrafo 1 - Perfil */}
                         <div className="mx-auto w-[95%] max-w-[500px]">
                             <TextAreaForm
                                 value={changePerfilEmpleadoData.data.perfilParrafoUno}
                                 name="perfilParrafoUno"
-                                label="Párrafo 1 - Perfil"
+                                label="Párrafo 1 - Perfil (Máximo 1000 carácteres)"
                                 onChange={
                                     ({ name, value }) => {
                                         if (value && value.toString().length <= 1000) {
                                             changePerfilEmpleadoData.setField({ name, value });
                                             setVerifyChangeValue(true);
+                                        }
+
+                                        if (value === null) {
+                                            changePerfilEmpleadoData.setField({ name, value: "" });
                                         }
                                     }
                                 }
@@ -443,12 +446,16 @@ export const PerfilEmpleado = ({
                             <TextAreaForm
                                 value={changePerfilEmpleadoData.data.perfilParrafoDos}
                                 name="perfilParrafoDos"
-                                label="Párrafo 2 - Perfil"
+                                label="Párrafo 2 - Perfil (Máximo 1000 carácteres)"
                                 onChange={
                                     ({ name, value }) => {
                                         if (value && value.toString().length <= 1000) {
                                             changePerfilEmpleadoData.setField({ name, value });
                                             setVerifyChangeValue(true);
+                                        }
+
+                                        if (value === null) {
+                                            changePerfilEmpleadoData.setField({ name, value: "" });
                                         }
                                     }
                                 }

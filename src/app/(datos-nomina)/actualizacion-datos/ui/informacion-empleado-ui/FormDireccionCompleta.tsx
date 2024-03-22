@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { SelectItem } from "@nextui-org/react"
+import { SelectItem, Chip } from "@nextui-org/react"
 import { NomenclaturaUrbana, NomenclaturaUrbana2, NomenclaturaUrbana3, NomenclaturaUrbanaCorta, abecedarioCalles } from "@/data/Direccion"
 import InputForm from "@/components/forms/InputForm"
 import SelectForm from "@/components/forms/SelectForm"
@@ -42,6 +42,9 @@ export const FormDireccionCompleta = ({ direccionActual, setVerifyChangeValue }:
     return (
         <div className="flex flex-col gap-4 justify-center items-center">
             <p>Dirección: </p>
+            <Chip color="primary">
+                <span className="text-sm">Su dirección actual es: {direccionActual}</span>
+            </Chip>
             <div className="flex flex-wrap items-center gap-4">
                 <div className="flex flex-col md:flex-row gap-2">
                     <div className="flex gap-4 md:gap-2">
@@ -346,11 +349,14 @@ export const FormDireccionCompleta = ({ direccionActual, setVerifyChangeValue }:
             </div>
 
             <div className="flex flex-col gap-2 justify-center items-center">
-                <span className="text-sm">Su dirección actual es: {direccionActual}</span>
                 {
                     getDireccionFinalPersona.length > 0 && (
                         <>
-                            <span className="text-sm text-dark-green">Su nueva dirección es: {getDireccionFinalPersona}</span>
+                            <Chip classNames={{
+                                base: 'bg-dark-green'
+                            }}>
+                                <span className="text-sm text-default-white">Su nueva dirección es: {getDireccionFinalPersona}</span>
+                            </Chip>
                             {
                                 getDireccionFinalPersona.length > 40 && (
                                     <p className="text-danger font-medium">La dirección no puede tener más de 40 caracteres.</p>

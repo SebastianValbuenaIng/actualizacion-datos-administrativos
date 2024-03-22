@@ -188,6 +188,7 @@ export const ConsultarExperiencia = ({ changeTab, getExperienciaEmpl, duracionEx
             }
         });
 
+        
         if (respNuevaExperiencia.code !== 200) {
             toast.error(respNuevaExperiencia.data.message, {
                 id: 'error-peticion'
@@ -210,16 +211,18 @@ export const ConsultarExperiencia = ({ changeTab, getExperienciaEmpl, duracionEx
         });
 
         if (respUpdateExperiencia.code !== 200) {
-            toast.error('Hubo un error', {
+            toast.error(respUpdateExperiencia.data.message, {
                 id: 'error-peticion'
             });
-            return;
+            return false;
         }
 
         getNuevasExperiencias();
         toast.success('Experiencia editada correctamente.', {
             id: 'success'
         });
+
+        return true;
     }
 
     const deleteExperiencia = async () => {
@@ -655,9 +658,9 @@ export const ConsultarExperiencia = ({ changeTab, getExperienciaEmpl, duracionEx
                                         <ButtonNextUI color="danger" variant="light" onPress={onClose}>
                                             Cerrar
                                         </ButtonNextUI>
-                                        <ButtonNextUI color="danger" variant="solid" className="text-off-white" onClick={() => {
-                                            putExperiencia();
-                                            onClose2();
+                                        <ButtonNextUI color="danger" variant="solid" className="text-off-white" onClick={async () => {
+                                            const res = await putExperiencia();
+                                            if(res) onClose2();
                                         }} isDisabled={!editExperiencia.validData}>
                                             Guardar
                                         </ButtonNextUI>

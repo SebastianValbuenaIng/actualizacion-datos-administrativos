@@ -599,8 +599,6 @@ export const PrincipalTabs = ({ openModal, setOpenModal }: Props) => {
                         } else if (verifyChangeValue) {
                             setModalGuardarTemporal(true);
                         }
-                        postInfoEmpleado();
-                        postPerfilEmplado();
                         setSelected(key.toString());
                     }
                 }
